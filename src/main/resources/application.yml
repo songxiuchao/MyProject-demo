@@ -124,3 +124,9 @@ fdfs:
 #日志
 logging:
   config: classpath:logback-spring.xml
+
+
+filter:
+  name: test
+  expectedInsertions: 1000
+  fpp: 0.001
