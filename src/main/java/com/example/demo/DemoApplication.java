@@ -4,6 +4,7 @@ import org.apache.catalina.filters.RequestDumperFilter;
 import org.mybatis.spring.annotation.MapperScan;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.cache.annotation.EnableCaching;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Profile;
 import org.springframework.scheduling.annotation.EnableScheduling;
@@ -12,6 +13,7 @@ import org.springframework.scheduling.annotation.EnableScheduling;
 @SpringBootApplication
 @MapperScan(basePackages = {"com.example.demo.Redis.dao",
         "com.example.demo.JWTSecurity.dao"})
+@EnableCaching
 public class DemoApplication  {//implements CommandLineRunner
 
     public static void main(String[] args) {

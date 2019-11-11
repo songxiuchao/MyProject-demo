@@ -85,6 +85,8 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
                 //定时任务
                 .antMatchers("/schedule/**").permitAll()
                 .antMatchers("/async/**").permitAll()
+                //ehcache
+                .antMatchers("/ehcache/**").permitAll()
                 // 测试多数据源的接口，可以去掉
                 //.antMatchers("/tran/**").permitAll()
                 .anyRequest().authenticated();
