@@ -79,10 +79,6 @@ spring:
         uri: mongodb://yohi:yohi190603@172.18.0.139:27017/yohi_platform
       #uri: mongodb://root:123456@localhost:27017/demo
 
-
-
-  #logging:
-  #config: classpath: logback-spring.xml
 mybatis:
   config-location: classpath:mybatis/mybatis-config.xml
   mapper-locations: classpath:mybatis/mapper/*.xml
@@ -124,3 +120,7 @@ fdfs:
     width: 150
     height: 120
   tracker-list: 172.18.0.139:22122
+
+#日志
+logging:
+  config: classpath:logback-spring.xml
