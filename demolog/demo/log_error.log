@@ -14151,3 +14151,4 @@ Action:
 Consider defining a bean of type 'com.example.demo.Schedule.config.MyQuartzScheduler' in your configuration.
 
 2019-11-11 08:59:03.176 [main] ERROR o.s.d.e.r.support.AbstractElasticsearchRepository - failed to load elasticsearch nodes : org.elasticsearch.client.transport.NoNodeAvailableException: None of the configured nodes are available: [{#transport#-1}{eBaYD3lhR7ueLS3EdA6XRw}{172.18.1.244}{172.18.1.244:9300}]
+2019-11-11 09:32:37.407 [main] ERROR o.s.d.e.r.support.AbstractElasticsearchRepository - failed to load elasticsearch nodes : org.elasticsearch.client.transport.NoNodeAvailableException: None of the configured nodes are available: [{#transport#-1}{yl0HS1JUSkS3eNDIcxyFcA}{172.18.1.244}{172.18.1.244:9300}]
