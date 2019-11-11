@@ -3,7 +3,7 @@ package com.example.demo.algorithm.BloomFilter;
 import org.springframework.data.redis.core.StringRedisTemplate;
 
 /**
- *
+ *redis布隆过滤器
  */
 public class RedisBitMap{
 
