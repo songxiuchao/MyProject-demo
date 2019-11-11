@@ -1,0 +1,33 @@
+一：用户登录：
+1.项目启动加载数据库加载常量池信息
+2.点击登录的时候访问先进入JwtAuthorizationTokenFilter，过滤静态资源，校验请求头部（拿到请求头），
+从cookie中获取token，如果cookie中没有token，则从header中获取token，通过token获取用户名，
+此时token为空，然后跳转到登录页面，如果token存在如果账号不为空，并且没有设置security上下文，就设置上下文，
+（尝试从缓存中拿取用户信息，拿不到，删除cookie，说明用户登录已经过期，拿到了创建当前登录上下文），跳转到主页面
+3.输入账号密码，点击登录时，请求进入JwtAuthorizationTokenFilter，此时token也为空（之前没有登陆过，或者token过期了）
+然后进入登录接口，先验证账号密码是否为空，不为空验证验证码是否正确，验证账号密码是否正确，然后检查账号是否存在，
+账号有没有被冻结，记录登录日志，创建token条件，生成token，将信息存入Session，创建cookie存信息
+
+二：权限：（注解实现）
+只有登录了的用户，并且有权限的才能查看日志（本文用的日志事例）
+
+三：新增方法:
+添加controller时，在WebSecurityConfig开开权限（类似shiro）
+例如：
+        .antMatchers("/").permitAll()
+        .antMatchers("/code/getCode").permitAll()
+        .antMatchers("/rest/login").permitAll()
+        .antMatchers("/oauth/render/*").permitAll()
+        .antMatchers("/oauth/callback/*").permitAll()
+        .antMatchers("/ssoLogin").permitAll()
+        .antMatchers("/sysTokenLogin").permitAll()
+        .antMatchers("/elasticSearch/*").permitAll()
+        .antMatchers("/kafka/*").permitAll()
+        .antMatchers("/mongo/*").permitAll()
+        .antMatchers("/netty/*").permitAll()
+        .antMatchers("/rabbitmq/*").permitAll()
+        .antMatchers("/redis/*").permitAll()
+        .antMatchers("/redis/*").permitAll()
+        .antMatchers("/log/addLog").permitAll()
+        .antMatchers("/user/login").permitAll()
+        .antMatchers("/error/*").permitAll()

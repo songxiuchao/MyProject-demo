@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.example.demo.JWTSecurity.dao.AuthDao">
+
+    <sql id="Base_Column_List_With_Pwd">
+		 id AS "userId", avatar AS "avatar", account AS "account", salt AS "salt", password AS "password", name AS "name", birthday AS "birthday", sex AS "sex", email AS "email", phone AS "phone", role_id AS "roleId", dept_id AS "deptId", status AS "status", create_time AS "createTime", create_user AS "createUser", update_time AS "updateTime", update_user AS "updateUser", version AS "version"
+	</sql>
+
+    <select id="getByAccount" resultType="com.example.demo.JWTSecurity.po.User">
+            select
+            <include refid="Base_Column_List_With_Pwd"/>
+            from sys_user where account = #{account} and status != 'DELETED'
+    </select>
+
+</mapper>

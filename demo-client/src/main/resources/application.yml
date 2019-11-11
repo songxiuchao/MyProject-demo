@@ -1,0 +1,22 @@
+server:
+  port: 8092
+  servlet:
+    session:
+      cookie:
+        name: UISESSIONMEMBER
+
+security:
+  oauth2:
+    client:
+      client-id: client
+      client-secret: 123456
+      access-token-uri: http://localhost:8091/oauth/token
+      user-authorization-uri: http://localhost:8091/oauth/authorize
+    resource:
+      user-info-uri: http://localhost:8091/sso/user
+logging:
+  level:
+    root: debug
+spring:
+  thymeleaf:
+    cache: false

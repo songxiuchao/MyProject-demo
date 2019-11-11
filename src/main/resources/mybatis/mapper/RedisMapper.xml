@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.example.demo.Redis.dao.RedisDao">
+    <sql id="UserInfo">
+        select
+            id,name,age,address
+        from
+            user
+    </sql>
+
+    <!--查询用户信息-->
+    <select id="getUserInfo" resultType="com.example.demo.Redis.po.User">
+        <include refid="UserInfo"></include>
+    </select>
+</mapper>
