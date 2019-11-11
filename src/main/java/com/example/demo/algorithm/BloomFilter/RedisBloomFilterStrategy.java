@@ -41,6 +41,8 @@ public class RedisBloomFilterStrategy {
         return true;
     }
 
+
+
     private long lowerEight(byte[] bytes) {
         return Longs.fromBytes(
                 bytes[7], bytes[6], bytes[5], bytes[4], bytes[3], bytes[2], bytes[1], bytes[0]);

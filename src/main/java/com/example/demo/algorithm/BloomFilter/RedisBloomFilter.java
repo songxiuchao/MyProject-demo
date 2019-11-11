@@ -57,7 +57,4 @@ public class RedisBloomFilter{
         return (long) (-expectedInsertions * Math.log(fpp) / (Math.log(2) * Math.log(2)));
     }
 
-    public static void main(String[] args) {
-
-    }
 }
