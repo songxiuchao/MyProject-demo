@@ -1,20 +1,16 @@
 package com.example.demo.DataStructure.otherNum.双向链表;
 
-import com.sun.corba.se.impl.orbutil.graph.NodeData;
-
-import java.util.LinkedHashMap;
-
 /**
- * 作者：idea
- * 日期：2018/5/11
- * 描述：双向链表的实现(单向类型)
- */
+ * @program: demo
+ * @description: 双向链表的实现(单向类型)
+ * @author: xiuchao Song
+ * @create: 2019-11-12 16:07
+ **/
 public class LinkList {
     Node head;
     Node tail;
     //申明该变量不会被持久化
     transient int size=0;
-    int data;
     class Node{
         int data;
         Node pre;
@@ -217,6 +213,9 @@ public class LinkList {
         System.out.println(linkList.disPlay());
     }
 
+//[head<==>34<==>1<==>2<==>3<==>44<==>tail]
+//[head<==>34<==>1<==>44<==>tail]
+//[head<==>1<==>44<==>tail]
 
 
 
