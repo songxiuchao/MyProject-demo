@@ -1,7 +1,5 @@
 package com.example.demo.DataStructure;
 
-import java.util.ArrayList;
-
 /**
  * @program: demo
  * @description: 数据结构的测试类
@@ -11,7 +9,7 @@ import java.util.ArrayList;
 public class DataStructureTest {
 
     public void test1(){
-        ArrayList arrayList=new ArrayList();
+
     }
 
 }
