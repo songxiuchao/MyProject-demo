@@ -1,5 +1,5 @@
 # MyProject-demo
-总结了一下最近比较火的技术（每天都添加一点）
+Add a little bit of technology every day
 1.redis布隆过滤器
 2.LRU算法
 3.树相关总结
