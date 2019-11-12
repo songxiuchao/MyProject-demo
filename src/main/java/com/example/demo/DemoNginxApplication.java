@@ -27,7 +27,13 @@ public class DemoNginxApplication extends SpringBootServletInitializer {
     @Override
     protected SpringApplicationBuilder configure(SpringApplicationBuilder builder) {
         return builder.sources(DemoNginxApplication.class);
-
     }
+
+    //    @Profile("!cloud")
+//    @Bean
+//    RequestDumperFilter requestDumperFilter() {
+//        return new RequestDumperFilter();
+//    }
+
 
 }

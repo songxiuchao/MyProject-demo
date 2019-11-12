@@ -86,3 +86,84 @@
 2019-11-12 08:54:43.108 [main] INFO  o.s.b.a.l.ConditionEvaluationReportLoggingListener - 
 
 Error starting ApplicationContext. To display the conditions report re-run your application with 'debug' enabled.
+2019-11-12 09:32:21.003 [main] INFO  com.example.demo.DemoNginxApplication - Starting DemoNginxApplication on SC-201907151545 with PID 164480 (G:\demo\target\classes started by Administrator in G:\demo)
+2019-11-12 09:32:21.035 [main] INFO  com.example.demo.DemoNginxApplication - No active profile set, falling back to default profiles: default
+2019-11-12 09:32:23.652 [main] INFO  o.s.d.r.config.RepositoryConfigurationDelegate - Multiple Spring Data modules found, entering strict repository configuration mode!
+2019-11-12 09:32:23.657 [main] INFO  o.s.d.r.config.RepositoryConfigurationDelegate - Bootstrapping Spring Data repositories in DEFAULT mode.
+2019-11-12 09:32:23.724 [main] INFO  o.s.d.r.c.RepositoryConfigurationExtensionSupport - Spring Data Elasticsearch - Could not safely identify store assignment for repository candidate interface com.example.demo.Mongodb.repository.OrderLogRepository.
+2019-11-12 09:32:23.742 [main] INFO  o.s.d.r.config.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 81ms. Found 1 repository interfaces.
+2019-11-12 09:32:23.746 [main] INFO  o.s.d.r.config.RepositoryConfigurationDelegate - Multiple Spring Data modules found, entering strict repository configuration mode!
+2019-11-12 09:32:23.747 [main] INFO  o.s.d.r.config.RepositoryConfigurationDelegate - Bootstrapping Spring Data repositories in DEFAULT mode.
+2019-11-12 09:32:23.758 [main] INFO  o.s.d.r.c.RepositoryConfigurationExtensionSupport - Spring Data Reactive Elasticsearch - Could not safely identify store assignment for repository candidate interface com.example.demo.Mongodb.repository.OrderLogRepository.
+2019-11-12 09:32:23.758 [main] INFO  o.s.d.r.config.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 11ms. Found 0 repository interfaces.
+2019-11-12 09:32:23.816 [main] INFO  o.s.d.r.config.RepositoryConfigurationDelegate - Multiple Spring Data modules found, entering strict repository configuration mode!
+2019-11-12 09:32:23.817 [main] INFO  o.s.d.r.config.RepositoryConfigurationDelegate - Bootstrapping Spring Data repositories in DEFAULT mode.
+2019-11-12 09:32:23.828 [main] INFO  o.s.d.r.c.RepositoryConfigurationExtensionSupport - Spring Data MongoDB - Could not safely identify store assignment for repository candidate interface com.example.demo.ElasticSearch.repository.MovieRepository.
+2019-11-12 09:32:23.839 [main] INFO  o.s.d.r.config.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 21ms. Found 1 repository interfaces.
+2019-11-12 09:32:23.877 [main] INFO  o.s.d.r.config.RepositoryConfigurationDelegate - Multiple Spring Data modules found, entering strict repository configuration mode!
+2019-11-12 09:32:23.878 [main] INFO  o.s.d.r.config.RepositoryConfigurationDelegate - Bootstrapping Spring Data repositories in DEFAULT mode.
+2019-11-12 09:32:23.899 [main] INFO  o.s.d.r.c.RepositoryConfigurationExtensionSupport - Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.example.demo.ElasticSearch.repository.MovieRepository.
+2019-11-12 09:32:23.899 [main] INFO  o.s.d.r.c.RepositoryConfigurationExtensionSupport - Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.example.demo.Mongodb.repository.OrderLogRepository.
+2019-11-12 09:32:23.899 [main] INFO  o.s.d.r.config.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 9ms. Found 0 repository interfaces.
+2019-11-12 09:32:25.977 [main] INFO  o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker - Bean 'org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration' of type [org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2019-11-12 09:32:26.309 [main] INFO  o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker - Bean 'org.springframework.security.config.annotation.configuration.ObjectPostProcessorConfiguration' of type [org.springframework.security.config.annotation.configuration.ObjectPostProcessorConfiguration] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2019-11-12 09:32:26.317 [main] INFO  o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker - Bean 'objectPostProcessor' of type [org.springframework.security.config.annotation.configuration.AutowireBeanFactoryObjectPostProcessor] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2019-11-12 09:32:26.320 [main] INFO  o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker - Bean 'org.springframework.security.access.expression.method.DefaultMethodSecurityExpressionHandler@401317a0' of type [org.springframework.security.access.expression.method.DefaultMethodSecurityExpressionHandler] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2019-11-12 09:32:26.322 [main] INFO  o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker - Bean 'org.springframework.security.config.annotation.method.configuration.GlobalMethodSecurityConfiguration' of type [org.springframework.security.config.annotation.method.configuration.GlobalMethodSecurityConfiguration] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2019-11-12 09:32:26.326 [main] INFO  o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker - Bean 'methodSecurityMetadataSource' of type [org.springframework.security.access.method.DelegatingMethodSecurityMetadataSource] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2019-11-12 09:32:26.872 [main] INFO  o.s.boot.web.embedded.tomcat.TomcatWebServer - Tomcat initialized with port(s): 8091 (http)
+2019-11-12 09:32:26.887 [main] INFO  org.apache.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8091"]
+2019-11-12 09:32:26.888 [main] INFO  org.apache.catalina.core.StandardService - Starting service [Tomcat]
+2019-11-12 09:32:26.888 [main] INFO  org.apache.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/9.0.27]
+2019-11-12 09:32:27.631 [main] INFO  org.apache.jasper.servlet.TldScanner - At least one JAR was scanned for TLDs yet contained no TLDs. Enable debug logging for this logger for a complete list of JARs that were scanned but no TLDs were found in them. Skipping unneeded JARs during scanning can improve startup time and JSP compilation time.
+2019-11-12 09:32:27.634 [main] INFO  o.a.c.core.ContainerBase.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2019-11-12 09:32:27.634 [main] INFO  org.springframework.web.context.ContextLoader - Root WebApplicationContext: initialization completed in 6535 ms
+2019-11-12 09:32:28.133 [main] INFO  org.elasticsearch.plugins.PluginsService - no modules loaded
+2019-11-12 09:32:28.134 [main] INFO  org.elasticsearch.plugins.PluginsService - loaded plugin [org.elasticsearch.index.reindex.ReindexPlugin]
+2019-11-12 09:32:28.134 [main] INFO  org.elasticsearch.plugins.PluginsService - loaded plugin [org.elasticsearch.join.ParentJoinPlugin]
+2019-11-12 09:32:28.134 [main] INFO  org.elasticsearch.plugins.PluginsService - loaded plugin [org.elasticsearch.percolator.PercolatorPlugin]
+2019-11-12 09:32:28.134 [main] INFO  org.elasticsearch.plugins.PluginsService - loaded plugin [org.elasticsearch.script.mustache.MustachePlugin]
+2019-11-12 09:32:28.134 [main] INFO  org.elasticsearch.plugins.PluginsService - loaded plugin [org.elasticsearch.transport.Netty4Plugin]
+2019-11-12 09:32:29.456 [main] INFO  o.s.d.e.client.TransportClientFactoryBean - Adding transport node : 172.18.1.244:9300
+2019-11-12 09:32:31.816 [main] INFO  com.alibaba.druid.pool.DruidDataSource - {dataSource-1} inited
+2019-11-12 09:32:32.884 [main] INFO  org.mongodb.driver.cluster - Cluster created with settings {hosts=[172.18.0.139:27017], mode=SINGLE, requiredClusterType=UNKNOWN, serverSelectionTimeout='30000 ms', maxWaitQueueSize=500}
+2019-11-12 09:32:32.945 [cluster-ClusterId{value='5dca0bb0cf9a2423898db814', description='null'}-172.18.0.139:27017] INFO  org.mongodb.driver.connection - Opened connection [connectionId{localValue:1, serverValue:464}] to 172.18.0.139:27017
+2019-11-12 09:32:32.948 [cluster-ClusterId{value='5dca0bb0cf9a2423898db814', description='null'}-172.18.0.139:27017] INFO  org.mongodb.driver.cluster - Monitor thread successfully connected to server with description ServerDescription{address=172.18.0.139:27017, type=STANDALONE, state=CONNECTED, ok=true, version=ServerVersion{versionList=[4, 0, 10]}, minWireVersion=0, maxWireVersion=7, maxDocumentSize=16777216, logicalSessionTimeoutMinutes=30, roundTripTimeNanos=3134804}
+2019-11-12 09:32:33.673 [main] INFO  o.s.a.rabbit.connection.CachingConnectionFactory - Attempting to connect to: [172.18.1.109:5672]
+2019-11-12 09:32:33.722 [main] INFO  o.s.a.rabbit.connection.CachingConnectionFactory - Created new connection: rabbitConnectionFactory#23263586:0/SimpleConnection@650997b0 [delegate=amqp://admin@172.18.1.109:5672/, localPort= 57925]
+2019-11-12 09:32:34.005 [main] INFO  org.quartz.impl.StdSchedulerFactory - Using default implementation for ThreadExecutor
+2019-11-12 09:32:34.017 [main] INFO  org.quartz.core.SchedulerSignalerImpl - Initialized Scheduler Signaller of type: class org.quartz.core.SchedulerSignalerImpl
+2019-11-12 09:32:34.017 [main] INFO  org.quartz.core.QuartzScheduler - Quartz Scheduler v.2.3.1 created.
+2019-11-12 09:32:34.018 [main] INFO  org.quartz.simpl.RAMJobStore - RAMJobStore initialized.
+2019-11-12 09:32:34.018 [main] INFO  org.quartz.core.QuartzScheduler - Scheduler meta-data: Quartz Scheduler (v2.3.1) 'quartzScheduler' with instanceId 'NON_CLUSTERED'
+  Scheduler class: 'org.quartz.core.QuartzScheduler' - running locally.
+  NOT STARTED.
+  Currently in standby mode.
+  Number of jobs executed: 0
+  Using thread pool 'org.quartz.simpl.SimpleThreadPool' - with 10 threads.
+  Using job-store 'org.quartz.simpl.RAMJobStore' - which does not support persistence. and is not clustered.
+
+2019-11-12 09:32:34.019 [main] INFO  org.quartz.impl.StdSchedulerFactory - Quartz scheduler 'quartzScheduler' initialized from an externally provided properties instance.
+2019-11-12 09:32:34.019 [main] INFO  org.quartz.impl.StdSchedulerFactory - Quartz scheduler version: 2.3.1
+2019-11-12 09:32:34.019 [main] INFO  org.quartz.core.QuartzScheduler - JobFactory set to: org.springframework.scheduling.quartz.SpringBeanJobFactory@6a4f15bc
+2019-11-12 09:32:34.734 [main] INFO  o.s.security.web.DefaultSecurityFilterChain - Creating filter chain: Ant [pattern='/login', POST], []
+2019-11-12 09:32:34.734 [main] INFO  o.s.security.web.DefaultSecurityFilterChain - Creating filter chain: Ant [pattern='/assets/**', GET], []
+2019-11-12 09:32:34.734 [main] INFO  o.s.security.web.DefaultSecurityFilterChain - Creating filter chain: Ant [pattern='/favicon.ico', GET], []
+2019-11-12 09:32:34.734 [main] INFO  o.s.security.web.DefaultSecurityFilterChain - Creating filter chain: Ant [pattern='/activiti-editor/**', GET], []
+2019-11-12 09:32:34.786 [main] INFO  o.s.security.web.DefaultSecurityFilterChain - Creating filter chain: OrRequestMatcher [requestMatchers=[Ant [pattern='/oauth/token'], Ant [pattern='/oauth/token_key'], Ant [pattern='/oauth/check_token']]], [org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@1912ba29, org.springframework.security.web.context.SecurityContextPersistenceFilter@6915b614, org.springframework.security.web.header.HeaderWriterFilter@28f5a003, org.springframework.security.web.authentication.logout.LogoutFilter@1da53092, org.springframework.security.web.authentication.www.BasicAuthenticationFilter@6eacf3be, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@314b0d53, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@4dbeae45, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@2c6ed95a, org.springframework.security.web.session.SessionManagementFilter@41a6cd9e, org.springframework.security.web.access.ExceptionTranslationFilter@7a7fdc1a, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@4ac7927a]
+2019-11-12 09:32:34.798 [main] INFO  o.s.security.web.DefaultSecurityFilterChain - Creating filter chain: OrRequestMatcher [requestMatchers=[Ant [pattern='/user/**']]], [org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@18eb6ea3, org.springframework.security.web.context.SecurityContextPersistenceFilter@1a370c7c, org.springframework.security.web.header.HeaderWriterFilter@3217e970, org.springframework.security.web.authentication.logout.LogoutFilter@4bd7e0b6, org.springframework.security.oauth2.provider.authentication.OAuth2AuthenticationProcessingFilter@33e19be9, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@63f08f9f, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@6e21b6f8, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@19740583, org.springframework.security.web.session.SessionManagementFilter@6d0d5147, org.springframework.security.web.access.ExceptionTranslationFilter@e8ef60b, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@29f3ea39]
+2019-11-12 09:32:34.821 [main] INFO  s.d.s.w.PropertySourcedRequestMappingHandlerMapping - Mapped URL path [/v2/api-docs] onto method [springfox.documentation.swagger2.web.Swagger2Controller#getDocumentation(String, HttpServletRequest)]
+2019-11-12 09:32:34.833 [main] INFO  o.s.b.a.web.servlet.WelcomePageHandlerMapping - Adding welcome page template: index
+2019-11-12 09:32:35.073 [main] INFO  o.s.security.web.DefaultSecurityFilterChain - Creating filter chain: any request, [org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@14d43f13, org.springframework.security.web.context.SecurityContextPersistenceFilter@4842a683, org.springframework.security.web.header.HeaderWriterFilter@64cbc28e, org.springframework.web.filter.CorsFilter@140449d9, com.example.demo.JWTSecurity.filter.JwtAuthorizationTokenFilter@8f6b4ab, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@65a03c19, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@5f455d91, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@748015f8, org.springframework.security.web.session.SessionManagementFilter@5623fd90, org.springframework.security.web.access.ExceptionTranslationFilter@44ad3c5e, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@5b076d23]
+2019-11-12 09:32:35.456 [main] INFO  o.s.scheduling.concurrent.ThreadPoolTaskExecutor - Initializing ExecutorService 'applicationTaskExecutor'
+2019-11-12 09:32:42.583 [main] INFO  o.s.scheduling.concurrent.ThreadPoolTaskScheduler - Initializing ExecutorService 'taskScheduler'
+2019-11-12 09:32:42.756 [main] INFO  s.d.s.web.plugins.DocumentationPluginsBootstrapper - Context refreshed
+2019-11-12 09:32:42.851 [main] INFO  s.d.s.web.plugins.DocumentationPluginsBootstrapper - Found 1 custom documentation plugin(s)
+2019-11-12 09:32:42.904 [main] INFO  s.d.spring.web.scanners.ApiListingReferenceScanner - Scanning for api listing references
+2019-11-12 09:32:44.200 [main] INFO  o.s.scheduling.quartz.SchedulerFactoryBean - Starting Quartz Scheduler now
+2019-11-12 09:32:44.200 [main] INFO  org.quartz.core.QuartzScheduler - Scheduler quartzScheduler_$_NON_CLUSTERED started.
+2019-11-12 09:32:44.210 [main] INFO  org.apache.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-8091"]
+2019-11-12 09:32:44.328 [main] INFO  o.s.boot.web.embedded.tomcat.TomcatWebServer - Tomcat started on port(s): 8091 (http) with context path ''
+2019-11-12 09:32:44.329 [main] INFO  com.example.demo.DemoNginxApplication - Started DemoNginxApplication in 25.086 seconds (JVM running for 26.801)
+2019-11-12 09:32:44.730 [main] INFO  com.example.demo.JWTSecurity.init.SysConfigInit - 初始化常量16条！
+2019-11-12 09:33:36.955 [SpringContextShutdownHook] INFO  o.s.a.r.listener.SimpleMessageListenerContainer - Waiting for workers to finish.
