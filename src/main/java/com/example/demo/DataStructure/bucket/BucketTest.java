@@ -17,14 +17,14 @@ public class BucketTest {
 
     public static void main(String args[]){
         Bucket b = new Bucket(50,1000,"test");
-        BucketTest d = new BucketTest();
-        d.test(b);
         for(int i=0; i<300;i++){
             try {
                 Thread.sleep(10);
             } catch (InterruptedException e) {
                 e.printStackTrace();
             }
+            BucketTest d = new BucketTest();
+            d.test(b);
             if(b.getToken()){
                 System.out.println("第"+i+"次访问,正常！！");
             }else{
