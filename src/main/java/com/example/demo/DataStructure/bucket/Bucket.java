@@ -1,23 +1,17 @@
 package com.example.demo.DataStructure.bucket;
 
-/**
- * @program: 限流令牌桶
- * @description:
- * @author: xiuchao Song
- * @create: 2019-11-12 16:21
- **/
+
 import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 
 /**
- *
- *限流桶示例
- *
- *
- * Created by sult on 2018/8/17.
- */
+ * @program: 限流令牌桶
+ * @description:
+ * @author: xiuchao Song
+ * @create: 2019-11-12 16:21
+ **/
 public class Bucket{
     /**
      * 设置的最大流量
