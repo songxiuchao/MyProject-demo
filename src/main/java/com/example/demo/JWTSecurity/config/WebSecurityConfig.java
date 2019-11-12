@@ -87,6 +87,9 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
                 .antMatchers("/async/**").permitAll()
                 //ehcache
                 .antMatchers("/ehcache/**").permitAll()
+                //QQ登录
+                .antMatchers("/getQQCode").permitAll()
+                .antMatchers("/QQLogin").permitAll()
                 // 测试多数据源的接口，可以去掉
                 //.antMatchers("/tran/**").permitAll()
                 .anyRequest().authenticated();
