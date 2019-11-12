@@ -1,5 +1,7 @@
 package com.example.demo.DataStructure.otherNum.老鼠走迷宫;
 
+import com.example.demo.DataStructure.otherNum.算法部分.老鼠走迷宫.DfsRatMaze2;
+
 import java.util.LinkedList;
 
 /**

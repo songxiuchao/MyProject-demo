@@ -1,8 +1,5 @@
 package com.example.demo.DataStructure.otherNum.二叉树构建表达式树;
 
-import bsh.EvalError;
-import bsh.Interpreter;
-
 public class Test {
 
 
@@ -32,7 +29,7 @@ public class Test {
         return sum;
     }
 
-    public static void main(String[] args) throws EvalError {
+    public static void main(String[] args) {
 //        Interpreter interpreter=new Interpreter();
 //        String count="1+1*2";
 //        interpreter.set("int",interpreter.eval("("+count+")"));

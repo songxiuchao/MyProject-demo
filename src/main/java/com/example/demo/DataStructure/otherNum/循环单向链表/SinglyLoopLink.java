@@ -1,9 +1,5 @@
 package com.example.demo.DataStructure.otherNum.循环单向链表;
 
-import 双向链表.LinkList;
-
-import java.util.ArrayList;
-import java.util.LinkedList;
 
 /**
  * 作者：idea
