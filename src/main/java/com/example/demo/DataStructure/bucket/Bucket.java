@@ -1,10 +1,10 @@
 package com.example.demo.DataStructure.bucket;
 
 
+import com.google.common.util.concurrent.ThreadFactoryBuilder;
+
 import java.util.Map;
-import java.util.concurrent.ConcurrentHashMap;
-import java.util.concurrent.ExecutorService;
-import java.util.concurrent.Executors;
+import java.util.concurrent.*;
 
 /**
  * @program: 限流令牌桶
@@ -33,35 +33,59 @@ public class Bucket{
         this.action = action;
         addToKen();
     }
-
+    // 手动创建通用线程池
+    ThreadPoolExecutor threadPoolExecutor = new ThreadPoolExecutor(1,1,0,
+            TimeUnit.MILLISECONDS,
+            new LinkedBlockingQueue<>(1024),
+            new ThreadFactoryBuilder().setNameFormat("xxx-pool-%d").build(),
+            new ThreadPoolExecutor.AbortPolicy());
     private  Map<String,Integer> tokenBucket = new ConcurrentHashMap<>();
 
-    private ExecutorService e = Executors.newFixedThreadPool(1);
+    //private ExecutorService e = Executors.newFixedThreadPool(1);
 
     /**
      *  开启异步线程往桶里放token
      */
     public void addToKen(){
-        e.submit(new Runnable() {
-            @Override
-            public void run() {
-                while(true){
-                    tokenBucket.put(action,maxFlow);
-                    try {
-                        Thread.sleep(unitTime);
-                    } catch (InterruptedException e1) {
-                        e1.printStackTrace();
-                    }
+        threadPoolExecutor.execute(new MyTask());
+    }
+
+    //实现Runnable接口
+    class MyTask implements Runnable{
+        //重写run方法
+        @Override
+        public void run() {
+            //任务内容....
+            while(true){
+                tokenBucket.put(action,maxFlow);
+                try {
+                    Thread.sleep(unitTime);
+                } catch (InterruptedException e1) {
+                    e1.printStackTrace();
                 }
             }
-        });
+        }
     }
+//    public void addToKen(){
+//        e.submit(new Runnable() {
+//            @Override
+//            public void run() {
+//                while(true){
+//                    tokenBucket.put(action,maxFlow);
+//                    try {
+//                        Thread.sleep(unitTime);
+//                    } catch (InterruptedException e1) {
+//                        e1.printStackTrace();
+//                    }
+//                }
+//            }
+//        });
+//    }
 
 
     public boolean getToken(){
-        System.out.println("---1---"+tokenBucket.get(action));
+        System.out.println("-------"+tokenBucket.get(action));
         if(tokenBucket.get(action)==null||tokenBucket.get(action)<=0){
-
             return false;
         }else{
             tokenBucket.put(action,tokenBucket.get(action)-1);

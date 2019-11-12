@@ -18,6 +18,7 @@ public class BucketTest {
     public static void main(String args[]){
         Bucket b = new Bucket(50,1000,"test");
         BucketTest d = new BucketTest();
+        d.test(b);
         for(int i=0; i<300;i++){
             try {
                 Thread.sleep(10);
@@ -31,5 +32,6 @@ public class BucketTest {
             }
         }
     }
+
 
 }
