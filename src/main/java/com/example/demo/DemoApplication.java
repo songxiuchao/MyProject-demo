@@ -16,9 +16,9 @@ import org.springframework.scheduling.annotation.EnableScheduling;
 @EnableCaching
 public class DemoApplication  {//implements CommandLineRunner
 
-    public static void main(String[] args) {
+  /*  public static void main(String[] args) {
         SpringApplication.run(DemoApplication.class, args);
-    }
+    }*/
 
     /**
      * 为测试环境添加相关的 Request Dumper information，便于调试
