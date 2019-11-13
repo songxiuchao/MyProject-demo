@@ -287,6 +287,20 @@
             <artifactId>junit</artifactId>
         </dependency>
 
+        <!-- 支付宝SDK -->
+        <!-- https://mvnrepository.com/artifact/com.alipay.sdk/alipay-sdk-java -->
+        <dependency>
+            <groupId>com.alipay.sdk</groupId>
+            <artifactId>alipay-sdk-java</artifactId>
+            <version>4.7.1.ALL</version>
+        </dependency>
+
+        <dependency>
+            <groupId>com.alipay.sdk</groupId>
+            <artifactId>alipay-trade-sdk</artifactId>
+            <version>3.3.0</version>
+        </dependency>
+
 
     </dependencies>
 
