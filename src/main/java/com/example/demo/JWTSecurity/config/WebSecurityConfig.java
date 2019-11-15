@@ -90,6 +90,8 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
                 //QQ登录
                 .antMatchers("/getQQCode").permitAll()
                 .antMatchers("/QQLogin").permitAll()
+                //solr
+                .antMatchers("/solr/**").permitAll()
                 // 测试多数据源的接口，可以去掉
                 //.antMatchers("/tran/**").permitAll()
                 .anyRequest().authenticated();

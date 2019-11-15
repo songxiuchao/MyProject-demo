@@ -1,5 +1,5 @@
 server:
-  port: 8080
+  port: 8091
 
 spring:
   application:
@@ -84,6 +84,8 @@ spring:
     mongodb:
         uri: mongodb://yohi:yohi190603@172.18.0.139:27017/yohi_platform
       #uri: mongodb://root:123456@localhost:27017/demo
+    solr:
+      host: http://127.0.0.1:8080/solr
 
 mybatis:
   config-location: classpath:mybatis/mybatis-config.xml
