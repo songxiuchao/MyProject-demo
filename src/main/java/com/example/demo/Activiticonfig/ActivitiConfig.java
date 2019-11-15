@@ -19,7 +19,7 @@ import java.io.IOException;
  * @author: xiuchao Song
  * @create: 2019-11-15 14:46
  **/
-@Configuration
+//@Configuration //需要的时候打开
 public class ActivitiConfig {
     /*
      * 配置分为以下几步骤
