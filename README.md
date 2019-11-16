@@ -8,4 +8,4 @@
 11.mysql总结  12.netty  13.rabbitmq  14.redis 15.quartz，schedule，线程池定时任务
 16.swagger  17.第三方QQ登录  18.微信授权登陆，自定义菜单，发送模板消息 
 19.支付宝，微信，美团支付，支付宝分账，退款 20.mycat 21.JDK1.8  22.activemq
-23.solr
+23.solr 24.nginx
