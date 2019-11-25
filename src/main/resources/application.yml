@@ -20,30 +20,6 @@ spring:
           enabled: true  #是否支持重试
     publisher-confirms: true  #支持发布确认
   redis:
-#    #写入
-#    master:
-#      database: 0
-#      host: 127.0.0.1
-#      port: 6379
-#      timeout: 20000
-##      password: xxx
-#      pool:
-#        maxActive: 8
-#        minIdle: 0
-#        maxIdle: 8
-#        maxWait: -1
-#      #只读
-#    lbs:
-#      database: 0
-#      host: 127.0.1.1
-#      port: 6389
-#      timeout: 20000
-##      password: xxx
-#      pool:
-#        maxActive: 8
-#        minIdle: 0
-#        maxIdle: 8
-#        maxWait: -1
     host: 172.18.0.139
     port: 7000
     password: test123
@@ -55,6 +31,8 @@ spring:
         max-wait: 3000
         max-idle: 8
         min-idle: 0
+#    cache.clusterNodes: 127.0.0.1:6379,127.0.0.1:6380,127.0.0.1:6381,127.0.0.1:6382,127.0.0.1:6383,127.0.0.1:6384
+#    cache.commandTimeout: 5000
   datasource:
     #Mysql链接
     username: root
