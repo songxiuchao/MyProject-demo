@@ -1,4 +1,4 @@
-package com.example.demo.pay;
+package com.example.demo.Settle;
 
 import com.alipay.api.AlipayApiException;
 import com.alipay.api.AlipayClient;
@@ -69,9 +69,15 @@ public class AlipaySettleTset {
     @RequestMapping("/bind")
    public String bind(@RequestParam String type,@RequestParam String account,
                     @RequestParam String name,@RequestParam String memo,@RequestParam String outRequestNo,
-                    @RequestParam String appAuthToken) throws AlipayApiException {
-       AlipayClient alipayClient = new DefaultAlipayClient(AliPayContant.ALI_GETAWAY_URL,AliPayContant.ALI_APP_ID,AliPayContant.ALI_PRIVITE_KEY,
-               AliPayContant.ALI_OBJECT, "GBK", AliPayContant.ALI_PUBLIC_KEY, AliPayContant.ALI_SIGN_TYPE_RSA2);
+                    @RequestParam(required = false) String appAuthToken) throws AlipayApiException {
+       AlipayClient alipayClient = new DefaultAlipayClient(
+                AliPayContant.ALI_GETAWAY_URL,
+                AliPayContant.ALI_APP_ID,
+                AliPayContant.ALI_PRIVITE_KEY,
+                AliPayContant.ALI_OBJECT,
+               "GBK",
+                AliPayContant.ALI_PUBLIC_KEY,
+               AliPayContant.ALI_SIGN_TYPE_RSA2);
         AlipayTradeRoyaltyRelationBindRequest request = new AlipayTradeRoyaltyRelationBindRequest();
        request.setBizContent("{" +
                "      \"receiver_list\":[{" +
@@ -82,7 +88,8 @@ public class AlipaySettleTset {
                "        }]," +
                "\"out_request_no\":"+"\""+outRequestNo +"\""+
                "  }");
-        AlipayTradeRoyaltyRelationBindResponse  response = alipayClient.execute(request,"",appAuthToken);
+        //AlipayTradeRoyaltyRelationBindResponse  response = alipayClient.execute(request,"",appAuthToken);  //开发者代替商户发起请求时，
+        AlipayTradeRoyaltyRelationBindResponse  response = alipayClient.execute(request);
        if(response.isSuccess()){
           return "Success";
        } else {
@@ -98,32 +105,33 @@ public class AlipaySettleTset {
      * @throws AlipayApiException
      */
     @PostMapping("/orderSettle")
-    public void orderSettle(@RequestParam String outRequestNo,@RequestParam  String tradeNo,@RequestParam String royaltyType,
-                            @RequestParam String transOut,@RequestParam String transOutType,@RequestParam String transInType,
-                            @RequestParam String transIn,@RequestParam String amount,@RequestParam String operatorId)throws AlipayApiException{
-        AlipayClient alipayClient = new DefaultAlipayClient(AliPayContant.ALI_GETAWAY_URL, AliPayContant.ALI_APP_ID,
-                AliPayContant.ALI_PRIVITE_KEY, AliPayContant.ALI_OBJECT,"GBK",
-                AliPayContant.ALI_PUBLIC_KEY, AliPayContant.ALI_SIGN_TYPE_RSA2);
+    public String orderSettle(@RequestParam String outRequestNo,@RequestParam  String tradeNo,@RequestParam(required = false) String royaltyType,
+                            @RequestParam(required = false) String transOut,@RequestParam(required = false) String transOutType,
+                            @RequestParam(required = false) String transInType, @RequestParam(required = false) String transIn,
+                            @RequestParam(required = false) String amount,@RequestParam(required = false) String operatorId,
+                            @RequestParam(required = false) String desc,@RequestParam(required = false) String appAuthToken)throws AlipayApiException{
+        AlipayClient alipayClient = new DefaultAlipayClient(AliPayContant.ALI_GETAWAY_URL,AliPayContant.ALI_APP_ID,AliPayContant.ALI_PRIVITE_KEY,
+                AliPayContant.ALI_OBJECT, "GBK", AliPayContant.ALI_PUBLIC_KEY, AliPayContant.ALI_SIGN_TYPE_RSA2);
         AlipayTradeOrderSettleRequest request = new AlipayTradeOrderSettleRequest();
-        request.setBizContent("{" +
-                "\"out_request_no\":"+outRequestNo +","+
-                "\"trade_no\":"+tradeNo+"," +
-                "\"royalty_parameters\":[{" +
-                "\"royalty_type\":"+royaltyType+"," +
-                "\"trans_out\":"+transOut+"," +
-                "\"trans_out_type\":"+transOutType+"," +
-                "\"trans_in_type\":"+transInType+"," +
-                "\"trans_in\":"+transIn+"," +
-                "\"amount\":"+amount+"," +
-                "\"desc\":"+"分帐给" +transIn+" "+amount+"元"+
-                "        }]," +
-                "\"operator_id\":"+operatorId +
-                "  }");
+            request.setBizContent("{" +
+                    "\"out_request_no\":"+"\""+outRequestNo +"\""+","+
+                    "\"trade_no\":"+"\""+tradeNo+"\""+"," +
+                    "\"royalty_parameters\":[{" +
+                    "\"royalty_type\":"+"\""+royaltyType+"\""+"," +
+                    "\"trans_out\":"+"\""+transOut+"\""+"," +
+                    "\"trans_out_type\":"+"\""+transOutType+"\""+"," +
+                    "\"trans_in_type\":"+"\""+transInType+"\""+"," +
+                    "\"trans_in\":"+"\""+transIn+"\""+"," +
+                    "\"amount\":"+amount+"," +
+                    "\"desc\":"+"\""+desc+"\""+"}]"+"}");
+        //AlipayTradeOrderSettleResponse response = alipayClient.execute(request,"",appAuthToken);
+        System.out.println(request.getBizContent());
         AlipayTradeOrderSettleResponse response = alipayClient.execute(request);
+        System.out.println(response.getBody());
         if(response.isSuccess()){
-            System.out.println("调用成功");
+            return "Success";
         } else {
-            System.out.println("调用失败");
+            return "ERROR";
         }
     }
 
@@ -132,55 +140,32 @@ public class AlipaySettleTset {
      * @throws AlipayApiException
      */
     @RequestMapping("/refund")
-    public void refund(@RequestParam String outTradeNo,@RequestParam String tradeNo,@RequestParam String refundAmount,
-                       @RequestParam String refundCurrency,@RequestParam String refundReason,@RequestParam String outRequestNo,
-                       @RequestParam String operatorId,@RequestParam String storeId,@RequestParam String terminalId,
-                       @RequestParam String goodsId,@RequestParam String alipayGoodsId,@RequestParam String goodsName,
-                       @RequestParam String quantity,@RequestParam String price,@RequestParam String goodsCategory,
-                       @RequestParam String categoriesTree,@RequestParam String body ,@RequestParam String showUrl,
-                       @RequestParam String royaltyType,@RequestParam String transOut,@RequestParam String transOutType,
-                       @RequestParam String transInType,@RequestParam String transIn,@RequestParam String amount,
-                       @RequestParam String amountPercentage,@RequestParam String desc,@RequestParam String orgPid) throws AlipayApiException {
-        AlipayClient alipayClient = new DefaultAlipayClient("https://openapi.alipay.com/gateway.do","app_id","your private_key","json","GBK","alipay_public_key","RSA2");
+    public String refund(@RequestParam(required =false) String outTradeNo,@RequestParam(required = false) String tradeNo,
+                       @RequestParam(required = false) String refundAmount,
+                       @RequestParam(required = false) String refundCurrency,@RequestParam String refundReason,@RequestParam String outRequestNo,
+                       @RequestParam(required = false) String operatorId,@RequestParam String storeId,@RequestParam String terminalId,
+                       @RequestParam String goodsId,@RequestParam(required = false) String alipayGoodsId,@RequestParam String goodsName,
+                       @RequestParam String quantity,@RequestParam String price,@RequestParam(required = false) String goodsCategory,
+                       @RequestParam (required = false)String categoriesTree,@RequestParam(required = false) String body ,
+                       @RequestParam(required = false) String showUrl, @RequestParam(required = false) String royaltyType,
+                       @RequestParam(required = false) String transOut,@RequestParam(required = false) String transOutType,
+                       @RequestParam(required = false) String transInType,@RequestParam(required = false) String transIn,
+                       @RequestParam(required = false) String amount, @RequestParam(required = false) String amountPercentage,
+                       @RequestParam(required = false) String desc,@RequestParam(required = false) String orgPid) throws AlipayApiException {
+        AlipayClient alipayClient = new DefaultAlipayClient(AliPayContant.ALI_GETAWAY_URL,AliPayContant.ALI_APP_ID,AliPayContant.ALI_PRIVITE_KEY,
+                AliPayContant.ALI_OBJECT, "GBK", AliPayContant.ALI_PUBLIC_KEY, AliPayContant.ALI_SIGN_TYPE_RSA2);
         AlipayTradeRefundRequest request = new AlipayTradeRefundRequest();
         request.setBizContent("{" +
-                "\"out_trade_no\":"+"\""+outTradeNo+"\""+"," +
                 "\"trade_no\":"+"\""+tradeNo+"\""+"," +
-                "\"refund_amount\":"+"\""+refundAmount+"\""+"," +
-                "\"refund_currency\":"+"\""+refundCurrency+"\""+"," +
-                "\"refund_reason\":"+"\""+refundReason+","+"\"" +
-                "\"out_request_no\":"+"\""+outRequestNo+","+"\"" +
-                "\"operator_id\":"+"\""+operatorId+"\""+"," +
-                "\"store_id\":"+"\""+storeId+"\""+"," +
-                "\"terminal_id\":"+"\""+terminalId+"\""+"," +
-                "      \"goods_detail\":[{" +
-                "        \"goods_id\":"+"\""+goodsId+"\""+"," +
-                "\"alipay_goods_id\":"+"\""+alipayGoodsId+"\""+"," +
-                "\"goods_name\":"+"\""+goodsName+"\""+"," +
-                "\"quantity\":"+"\""+quantity+"\""+"," +
-                "\"price\":"+"\""+price+"\""+"," +
-                "\"goods_category\":"+"\""+goodsCategory+"\""+"," +
-                "\"categories_tree\":"+"\""+categoriesTree+"\""+"," +
-                "\"body\":"+"\""+body+"," +"\""+
-                "\"show_url\":"+"\""+showUrl+"\"" +
-                "        }]," +
-                "      \"refund_royalty_parameters\":[{" +
-                "        \"royalty_type\":"+"\""+royaltyType+"\""+"," +
-                "\"trans_out\":"+"\""+transOut+"\""+"," +
-                "\"trans_out_type\":"+"\""+transOutType+"\""+"," +
-                "\"trans_in_type\":"+"\""+transInType+"\""+"," +
-                "\"trans_in\":"+"\""+transIn+"\""+"," +
-                "\"amount\":"+"\""+amount+"\""+"," +
-                "\"amount_percentage\":"+"\""+amountPercentage +"\""+","+
-                "\"desc\":"+desc +
-                "        }]," +
-                "\"org_pid\":"+orgPid +
+                "\"refund_amount\":"+"\""+refundAmount+"\""+
+                "        }]" +
                 "  }");
         AlipayTradeRefundResponse response = alipayClient.execute(request);
+        System.out.println(response.getBody());
         if(response.isSuccess()){
-            System.out.println("调用成功");
+            return "Success";
         } else {
-            System.out.println("调用失败");
+            return "ERROR";
         }
     }
 
@@ -193,17 +178,49 @@ public class AlipaySettleTset {
      * @throws AlipayApiException
      */
     @RequestMapping("/query")
-    public void query(@RequestParam String outTradeNo,@RequestParam String tradeNo,@RequestParam String orgPid,
-                      @RequestParam String queryOptions) throws AlipayApiException {
-        AlipayClient alipayClient = new DefaultAlipayClient("https://openapi.alipay.com/gateway.do","app_id","your private_key","json","GBK","alipay_public_key","RSA2");
+    public String query(@RequestParam(required = false) String outTradeNo,@RequestParam(required = false)  String tradeNo,
+                      @RequestParam(required = false) String orgPid,
+                      @RequestParam(required = false) String queryOptions) throws AlipayApiException {
+        AlipayClient alipayClient = new DefaultAlipayClient(AliPayContant.ALI_GETAWAY_URL, AliPayContant.ALI_APP_ID,
+                AliPayContant.ALI_PRIVITE_KEY, AliPayContant.ALI_OBJECT,"GBK",
+                AliPayContant.ALI_PUBLIC_KEY, AliPayContant.ALI_SIGN_TYPE_RSA2);
         AlipayTradeQueryRequest request = new AlipayTradeQueryRequest();
         request.setBizContent("{" +
                 "\"out_trade_no\":"+"\""+outTradeNo+"\""+"," +
                 "\"trade_no\":"+"\""+tradeNo+"\""+"," +
-                "\"org_pid\":"+"\""+orgPid+"\""+"," +
+                //注掉的需要条件下使用
+               // "\"trade_no\":"+"\""+tradeNo+"\""+"," +
+                //"\"org_pid\":"+"\""+orgPid+"\""+"," +
                 "      \"query_options\":[" + "\""+queryOptions+"\""+ "]" +
                 "  }");
         AlipayTradeQueryResponse response = alipayClient.execute(request);
+        if(response.isSuccess()){
+            return response.getBody();
+        } else {
+            return "ERROR";
+        }
+    }
+
+    /**
+     * 查询绑定关系
+     * @param appAuthToken
+     * @param outRequestNo
+     * @throws AlipayApiException
+     */
+    @RequestMapping("/batchquery")
+    public void t(@RequestParam(required = false) String appAuthToken,@RequestParam String outRequestNo) throws AlipayApiException {
+        AlipayClient alipayClient = new DefaultAlipayClient(AliPayContant.ALI_GETAWAY_URL, AliPayContant.ALI_APP_ID,
+                AliPayContant.ALI_PRIVITE_KEY, AliPayContant.ALI_OBJECT,"GBK",
+                AliPayContant.ALI_PUBLIC_KEY, AliPayContant.ALI_SIGN_TYPE_RSA2);
+        AlipayTradeRoyaltyRelationBatchqueryRequest request = new AlipayTradeRoyaltyRelationBatchqueryRequest();
+        request.setBizContent("{" +
+                "\"page_num\":1," +
+                "\"page_size\":20," +
+                "\"out_request_no\":"+"\""+outRequestNo+"\"" +
+                "  }");
+        //AlipayTradeRoyaltyRelationBatchqueryResponse response = alipayClient.execute(request,"",appAuthToken);
+        AlipayTradeRoyaltyRelationBatchqueryResponse response = alipayClient.execute(request);
+        System.out.println(response.getBody());
         if(response.isSuccess()){
             System.out.println("调用成功");
         } else {
@@ -223,13 +240,15 @@ public class AlipaySettleTset {
     @RequestMapping("/unbind")
     public void unbind(@RequestParam String type,@RequestParam String account,@RequestParam String name,
                        @RequestParam String memo,@RequestParam String outRequestNo) throws AlipayApiException {
-        AlipayClient alipayClient = new DefaultAlipayClient("https://openapi.alipay.com/gateway.do","app_id","your private_key","json","GBK","alipay_public_key","RSA2");
+        AlipayClient alipayClient = new DefaultAlipayClient(AliPayContant.ALI_GETAWAY_URL, AliPayContant.ALI_APP_ID,
+                AliPayContant.ALI_PRIVITE_KEY, AliPayContant.ALI_OBJECT,"GBK",
+                AliPayContant.ALI_PUBLIC_KEY, AliPayContant.ALI_SIGN_TYPE_RSA2);
         AlipayTradeRoyaltyRelationUnbindRequest request = new AlipayTradeRoyaltyRelationUnbindRequest();
         request.setBizContent("{" +
                 "      \"receiver_list\":[{" +
                 "        \"type\":"+"\""+type+"\""+"," +
                 "\"account\":"+"\""+account+"\""+"," +
-                "\"name\":"+name+"," +
+                "\"name\":"+"\""+name+"\""+"," +
                 "\"memo\":"+"\""+memo+"\""+
                 "        }]," +
                 "\"out_request_no\":"+"\""+outRequestNo+"\"" +
