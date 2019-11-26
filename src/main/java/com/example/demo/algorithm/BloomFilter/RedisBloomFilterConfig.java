@@ -20,8 +20,8 @@ import org.springframework.data.redis.core.StringRedisTemplate;
  */
 
 @Data
-@Configuration
-@ConfigurationProperties(prefix = "filter")
+//@Configuration   //用的时候开启
+//@ConfigurationProperties(prefix = "filter")   //用的时候开启
 public class RedisBloomFilterConfig {
 
     private String name;

@@ -74,8 +74,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
                 .antMatchers("/mongo/*").permitAll()
                 .antMatchers("/netty/*").permitAll()
                 .antMatchers("/rabbitmq/*").permitAll()
-                .antMatchers("/redis/*").permitAll()
-                .antMatchers("/redis/*").permitAll()
+                .antMatchers("/redis/**").permitAll()
                 .antMatchers("/log/addLog").permitAll()
                 .antMatchers("/user/login").permitAll()
                 // session登录失效之后的跳转
@@ -94,6 +93,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
                 .antMatchers("/solr/**").permitAll()
                 .antMatchers("/message/**").permitAll()
                 .antMatchers("/settle/**").permitAll()
+                .antMatchers("/weChatSettle/**").permitAll()
                 // 测试多数据源的接口，可以去掉
                 //.antMatchers("/tran/**").permitAll()
                 .anyRequest().authenticated();
