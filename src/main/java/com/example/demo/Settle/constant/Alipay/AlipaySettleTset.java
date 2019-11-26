@@ -1,4 +1,4 @@
-package com.example.demo.Settle.Alipay;
+package com.example.demo.Settle.constant.Alipay;
 
 import com.alipay.api.AlipayApiException;
 import com.alipay.api.AlipayClient;

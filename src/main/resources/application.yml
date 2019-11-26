@@ -20,6 +20,16 @@ spring:
           enabled: true  #是否支持重试
     publisher-confirms: true  #支持发布确认
   redis:
+    cluster:
+      nodes: 127.0.0.1:6380   # REDIS 集群(RedisProperties)  ,127.0.0.1:6381,127.0.0.1:6382,127.0.0.1:6383,127.0.0.1:6384
+    jedis:
+      pool:
+        max-active: 500 # 连接池最大连接数（使用负值表示没有限制）
+        max-idle: 30  # 连接池中的最大空闲连接
+        min-idle: 5   # 连接池中的最小空闲连接~
+        max-wait: 3000  # 连接池最大阻塞等待时间（使用负值表示没有限制）
+    timeout: 10000  # 连接超时时间（毫秒）
+  #  redis:
 #    host: 172.18.0.139
 #    port: 7000
 #    password: test123
