@@ -11,7 +11,7 @@ import org.springframework.scheduling.annotation.EnableScheduling;
 
 @EnableScheduling //支持定时任务
 @SpringBootApplication
-@MapperScan(basePackages = {"com.example.demo.Redis.dao",
+@MapperScan(basePackages = {
         "com.example.demo.JWTSecurity.dao"})
 @EnableCaching
 public class DemoApplication  {//implements CommandLineRunner
