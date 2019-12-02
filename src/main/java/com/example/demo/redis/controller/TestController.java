@@ -7,9 +7,12 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.redis.core.StringRedisTemplate;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
+import redis.clients.jedis.GeoCoordinate;
+import redis.clients.jedis.Jedis;
+import redis.clients.jedis.JedisPool;
 
-import java.util.Date;
-import java.util.UUID;
+import javax.naming.directory.SearchResult;
+import java.util.*;
 import java.util.concurrent.*;
 
 /**
@@ -29,6 +32,9 @@ public class TestController {
 
     @Autowired
     StringRedisTemplate template;
+
+    @Autowired
+    private JedisPool jedisPool;
 
     /**
      * http://127.0.0.1:8081/setUserRedis
@@ -173,6 +179,49 @@ public class TestController {
         }
 
         return "5";
+    }
+
+    /**
+     * HyperLogLog
+     */
+    @RequestMapping(value = "/hyperLogLog")
+    public void testHyper(){
+        Jedis jedis = new Jedis();
+        for (int i = 0; i < 100000; i++) {
+            jedis.pfadd("codehole", "user" + i);
+        }
+        long total = jedis.pfcount("codehole");
+        System.out.printf("%d %d\n", 100000, total);
+        jedis.close();
+    }
+
+    /**
+     * GEO
+     * @param map
+     * @return
+     */
+    @RequestMapping("/geoadd")
+    public Long geoadd(Map<String, GeoCoordinate> map){
+        Jedis jedis=null;
+        try{
+            jedis = jedisPool.getResource();
+            return jedis.geoadd("key", map );
+        }catch (Exception e){
+            System.out.println(e.getMessage());
+            e.printStackTrace();
+        }finally {
+            jedis.close();
+        }
+        return null;
+    }
+
+
+    /**
+     * redisSearch
+     */
+    @RequestMapping("/redisSearch")
+    public void redisSearch(){
+
     }
 
 

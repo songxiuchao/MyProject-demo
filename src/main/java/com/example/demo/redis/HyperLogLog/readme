@@ -1,0 +1,2 @@
+数据量小的时候，可以用redis的sadd添加，scard取出。
+数据量大的时候用HyperLogLog ===>pfadd 和 pfcount
