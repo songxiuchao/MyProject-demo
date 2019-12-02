@@ -4,9 +4,11 @@ import com.example.demo.redis.config.JedisUtil;
 import com.example.demo.redis.config.RedisDistributeLock;
 import com.google.common.util.concurrent.ThreadFactoryBuilder;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.redis.core.StringRedisTemplate;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import java.util.Date;
 import java.util.UUID;
 import java.util.concurrent.*;
 
@@ -24,6 +26,9 @@ public class TestController {
 
     @Autowired
     private RedisDistributeLock distributeLock;
+
+    @Autowired
+    StringRedisTemplate template;
 
     /**
      * http://127.0.0.1:8081/setUserRedis
@@ -156,4 +161,19 @@ public class TestController {
             System.out.println("get lock fail :---" + "TEST_LOCK_VAL_"+ uid);
         }
     }
+
+    @RequestMapping(value = "/syncmessage")
+    public String SyncMessage(){
+        for(int i = 1; i <= 5; i++){
+            try{
+                // 为了模拟消息，sleep一下。
+                Thread.sleep(2000);
+            }catch(InterruptedException ex){}
+            template.convertAndSend("channel:test", String.format("我是消息{%d}号: %tT", i, new Date()));
+        }
+
+        return "5";
+    }
+
+
 }
