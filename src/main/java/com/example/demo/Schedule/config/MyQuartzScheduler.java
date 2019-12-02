@@ -11,7 +11,7 @@ import org.springframework.context.annotation.Configuration;
  * @author: xiuchao Song
  * @create: 2019-11-11 08:46
  **/
-@Configuration
+//@Configuration
 public class MyQuartzScheduler {
     // 任务调度
     @Autowired

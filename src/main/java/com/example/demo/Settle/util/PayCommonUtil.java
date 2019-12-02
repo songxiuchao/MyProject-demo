@@ -1,5 +1,7 @@
 package com.example.demo.Settle.util;
 
+import com.alibaba.fastjson.JSONObject;
+
 import java.text.SimpleDateFormat;
 import java.util.*;
 
@@ -48,17 +50,32 @@ public class PayCommonUtil {
             String k = (String) entry.getKey();
 
             if (entry.getValue().getClass() == TreeMap.class){
-                SortedMap sortedMap = (SortedMap) entry.getValue();
-                Set s = sortedMap.entrySet();
-                Iterator i = s.iterator();
-                while (i.hasNext())
-                {
-                    Map.Entry m = (Map.Entry)i.next();
-                    String v = (String)m.getValue();
-                    if (null != v && !"".equals(v) && !"sign".equals(k) && !"key".equals(k)) {
-                        sb.append(k + "=" + v + "&");
+                TreeMap sortedMap = (TreeMap) entry.getValue();
+//                Set s = sortedMap.entrySet();
+//                Iterator i = s.iterator();
+//                while (i.hasNext())
+//                {
+//                    Map.Entry m = (Map.Entry)i.next();
+//                    String v = (String)m.getValue();
+//                    if (null != v && !"".equals(v) && !"sign".equals(k) && !"key".equals(k)) {
+//                        sb.append(k + "=" + v + "&");
+//                    }
+//                }
+                if (null != sortedMap && !"".equals(sortedMap) && !"sign".equals(k) && !"key".equals(k)) {
+                    StringBuffer sbvalue = new StringBuffer();
+                    Set s = sortedMap.entrySet();
+                    Iterator i = s.iterator();
+                    while (i.hasNext())
+                    {
+                        Map.Entry m = (Map.Entry)i.next();
+                        String v = (String)m.getValue();
+                        if (null != v && !"".equals(v) && !"sign".equals(k) && !"key".equals(k)) {
+                            sbvalue.append("\""+k+"\"" + ":" +"\""+v+ "\"" + "&");
+                        }
                     }
-                }
+                        sb.append(k + "=" + sbvalue + "&");
+                    }
+
             }else {
                 String v = (String) entry.getValue();
                 if (null != v && !"".equals(v) && !"sign".equals(k) && !"key".equals(k)) {
@@ -88,19 +105,24 @@ public class PayCommonUtil {
             String k = (String) entry.getKey();
 
             if (entry.getValue().getClass() == TreeMap.class){
-                SortedMap sortedMap = (SortedMap) entry.getValue();
-                Set s = sortedMap.entrySet();
-                Iterator i = s.iterator();
-                while (i.hasNext())
-                {
-                    Map.Entry m = (Map.Entry)i.next();
-                    String v = (String)m.getValue();
-                    if ("attach".equalsIgnoreCase(k) || "body".equalsIgnoreCase(k) || "sign".equalsIgnoreCase(k)) {
-                        sb.append("<" + k + ">" + "<![CDATA[" + v + "]]></" + k + ">");
+                TreeMap sortedMap = (TreeMap) entry.getValue();
+//                Set s = sortedMap.entrySet();
+//                Iterator i = s.iterator();
+//                while (i.hasNext())
+//                {
+//                    Map.Entry m = (Map.Entry)i.next();
+//                    String v = (String)m.getValue();
+//                    if ("attach".equalsIgnoreCase(k) || "body".equalsIgnoreCase(k) || "sign".equalsIgnoreCase(k)) {
+//                        sb.append("<" + k + ">" + "<![CDATA[" + v + "]]></" + k + ">");
+//                    } else {
+//                        sb.append("<" + k + ">" + v + "</" + k + ">");
+//                    }
+//                }
+                if ("attach".equalsIgnoreCase(k) || "body".equalsIgnoreCase(k) || "sign".equalsIgnoreCase(k)) {
+                        sb.append("<" + k + ">" + "<![CDATA[" + sortedMap + "]]></" + k + ">");
                     } else {
-                        sb.append("<" + k + ">" + v + "</" + k + ">");
+                        sb.append("<" + k + ">" + sortedMap + "</" + k + ">");
                     }
-                }
             }else {
                 String v = (String) entry.getValue();
                 if ("attach".equalsIgnoreCase(k) || "body".equalsIgnoreCase(k) || "sign".equalsIgnoreCase(k)) {

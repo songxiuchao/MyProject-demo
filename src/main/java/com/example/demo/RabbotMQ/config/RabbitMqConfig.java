@@ -14,7 +14,7 @@ import org.springframework.context.annotation.Configuration;
  * @create: 2019-11-01 14:33
  **/
 @Slf4j
-@Configuration
+//@Configuration
 public class RabbitMqConfig {
 
     /**

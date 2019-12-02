@@ -1,5 +1,6 @@
 package com.example.demo.Settle.weChat;
 
+import com.alibaba.fastjson.JSONObject;
 import com.example.demo.Common.constant.ResponseCode;
 import com.example.demo.Common.constant.Result;
 import com.example.demo.Settle.constant.Wechat.WechatConstant;
@@ -63,7 +64,9 @@ public class WeChatTest {
         userInfoParam.put("account",account);
         userInfoParam.put("name",name);
         userInfoParam.put("relation_type",relationType);
-        userInfoParam.put("custom_relation",customRelation);
+        if (userInfoParam.get("relation_type").equals("CUSTOM")){
+            userInfoParam.put("custom_relation",customRelation);
+        }
         packageParams.put("receiver",userInfoParam);
 
         String sign = PayCommonUtil.createSign("UTF-8", packageParams, payKey);

@@ -25,7 +25,7 @@ import java.io.IOException;
  * @create: 2019-11-01 14:45
  **/
 @Slf4j
-@Configuration
+//@Configuration
 public class SignMessageConfig {
 
     @Autowired
