@@ -33,8 +33,8 @@ public class TestController {
     @Autowired
     StringRedisTemplate template;
 
-    @Autowired
-    private JedisPool jedisPool;
+//    @Autowired
+//    private JedisPool jedisPool;
 
     /**
      * http://127.0.0.1:8081/setUserRedis
@@ -204,7 +204,7 @@ public class TestController {
     public Long geoadd(Map<String, GeoCoordinate> map){
         Jedis jedis=null;
         try{
-            jedis = jedisPool.getResource();
+            //jedis = jedisPool.getResource();
             return jedis.geoadd("key", map );
         }catch (Exception e){
             System.out.println(e.getMessage());
