@@ -98,7 +98,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
                 //.antMatchers("/tran/**").permitAll()
                 .anyRequest().authenticated();
         httpSecurity.addFilterBefore(authenticationTokenFilter, UsernamePasswordAuthenticationFilter.class);
-        // disable page caching
+        //禁用页面缓存
         httpSecurity
                 .headers()
                 .frameOptions().sameOrigin()
@@ -107,22 +107,13 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 
     @Override
     public void configure(WebSecurity web) {
-        web
-                .ignoring()
-                .antMatchers(
-                        HttpMethod.POST,
-                        "/login"
-                )
-
+                web.ignoring()
+                .antMatchers(HttpMethod.POST, "/login")
                 // 静态资源放开过滤
                 .and()
                 .ignoring()
-                .antMatchers(
-                        HttpMethod.GET,
-                        "/assets/**",
-                        "/favicon.ico",
-                        "/activiti-editor/**"
-                );
-
+                .antMatchers(HttpMethod.GET, "/assets/**", "/favicon.ico", "/activiti-editor/**");
     }
+
+
 }
