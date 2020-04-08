@@ -1,3 +1,4 @@
+/*
 package com.example.demo.pay.pay.service.Impl;
 
 import com.alibaba.fastjson.JSONObject;
@@ -14,12 +15,14 @@ import org.springframework.stereotype.Service;
 
 import java.util.SortedMap;
 
+*/
 /**
  * @program: 支付宝支付
  * @description:
  * @author: xiuchao Song
  * @create: 2019-11-13 13:48
- **/
+ **//*
+
 @Service("alipayPayService")
 @Slf4j
 public class AlipayPayServiceImpl implements PayService {
@@ -64,3 +67,4 @@ public class AlipayPayServiceImpl implements PayService {
         return Result.success("支付宝手机网站调用成功！", result);
     }
 }
+*/
