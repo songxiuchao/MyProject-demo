@@ -1,7 +1,7 @@
 
                                         Add a little bit of technology every day
 
-工具 :idea2019.1.1   数据库：MySql5.7（没用高版本）
+工具 :idea2019.1.1   数据库：MySql5.7
 
 1.redis布隆过滤器  2.LRU算法  3.树相关总结  4.elasticsearch  5.ehcache
 6.fastdfs  7.jvm小知识  8.JWT+security+autho登录  9.kafka  10.mongofb
